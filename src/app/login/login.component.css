@@ -1,0 +1,28 @@
+.block {
+  justify-content: center;
+  align-items: center;
+}
+
+form{
+  color: #000;
+}
+
+.inp {
+  width: 100%;
+  padding: 5px 5px;
+  margin: 10px;
+}
+
+button {
+  margin:5px;
+  width: 100%;
+}
+
+button:disabled {
+  background-color: gray;
+  opacity: 0.8;
+  color: #fff;
+  cursor:not-allowed;
+}
+
+

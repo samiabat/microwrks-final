@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+
+<div class="container">
+
+
+  <h3 style="text-align:center; margin: 15px; border: 2px solid #584;height:400%;" >Add Job</h3> <hr>
+
+<form [formGroup]="form">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="title">
+    <div id="femailHelp" class="form-text">The job title</div>
+  </div>
+  <div class="mb-3">
+    <input type="hidden" class="form-control" id="eexampleInputEmail1" aria-describedby="emailHelp" ngModel="{{user}}" formControlName="customer">
+  </div>
+  <div class="mb-3">
+    <label for="eexampleInputEmail1" class="form-label">Description</label>
+    <textarea class="form-control" id="eexampleFormControlTextarea1" aria-describedby="emailHelp" rows="5" formControlName="description"></textarea>
+    <div id="eemailHelp" class="form-text">Write your description</div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="salary" class="form-label">Status</label>
+  <select type="text" class="form-control" id="salary" aria-describedby="emailHelp" formControlName="status">
+    <option [ngValue]="null" [disabled]="true" >Select level</option>
+    <option value="expert">Expert</option>
+    <option value="intermidate">Intermidiate</option>
+    <option value="beginer">Beginner</option>
+  </select>
+  <div id="eemailHelp" class="form-text">Enter the level you want to hire.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="eeexampleInputEmail1" class="form-label">Salary</label>
+    <input type="text" class="form-control" id="eeexampleFormControlTextarea1" aria-describedby="emailHelp" formControlName="salary">
+    <div id="eeemailHelp" class="form-text">Write your Salery</div>
+  </div>
+  <button (click)="jobSubmit(form.value)" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+<app-footer></app-footer>

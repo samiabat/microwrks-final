@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link active" href="">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/home">Profile</a>
+      </li>
+      <li class = "nav-item">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+          </form>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" routerLink="/jobs">Browse Jobs</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="">Why Microworks?</a>
+      </li>
+    <li class = "nav-item">
+    </li>
+  </ul>
+  </div>
+
+
+  <i *ngIf="loggedIn()" class="align-content-center mx-3" style="color:white;">Hello, {{user}}</i>
+  <a *ngIf="!loggedIn()" class="btn btn-sm btn-primary align-content-center mx-2" routerLink="/login">Login</a>
+  <a *ngIf="loggedIn()" class="btn btn-sm btn-danger align-content-center" (click)="logout()">Logout</a>
+  <span><a *ngIf="!loggedIn()" class="btn btn-sm btn-danger align-content-center" routerLink="/register">Sign Up</a></span>
+
+</nav>

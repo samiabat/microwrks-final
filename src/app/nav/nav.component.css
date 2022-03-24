@@ -1,0 +1,19 @@
+.hello-msg{
+  font-size: 18px;
+  color: #fff;
+  margin-right: 20px;
+}
+
+
+
+.profile-pic{
+  max-width: 30px;
+  max-height:30px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+li a, span a,.hello-msg {
+  font-size:0.8rem;
+  color: #fff;
+  text-decoration: none;
+}

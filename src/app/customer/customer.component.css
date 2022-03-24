@@ -1,0 +1,85 @@
+.hello-msg{
+  font-size: 18px;
+  color: #fff;
+  margin-right: 20px;
+}
+
+
+
+.profile-pic{
+  max-width: 30px;
+  max-height:30px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+li a, span a,.hello-msg {
+  font-size:0.8rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.styled {
+  background-color: rgb(92, 144, 223);
+}
+
+ul {
+  justify-content: space-around;
+
+}
+
+a {
+  color: white;
+}
+
+.card_header {
+  background-color: orange;
+  font-size: 5rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+}
+.margined{
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  background-color: black;
+}.card-img{
+  height:30rem;
+}p.top{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 5rem;
+}.top{
+  margin-bottom: 5rem;
+}
+.option{
+  background-color:white;
+}.h1-card {
+  color:black;
+  text-align: center;
+  padding-top: 5rem;
+}
+.trans{
+  border:hidden;
+}.top{
+  text-shadow: crimson 5px 5px 5px;
+}.middle{
+  font-size: 3rem;
+  text-shadow: rgb(0, 238, 255) 5px 5px 5px;
+}a.signUp,a.logIn{
+color: rgb(231, 26, 197);
+text-decoration: none;
+}
+a.signUp:hover{
+  color: aqua;
+}a.logIn:hover{
+  color: green;
+}.middle__mid{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+#homeImage{
+    border:hidden;
+    height:30rem;
+}
+span a{
+  margin:2rem;
+}
+#login{
+  color: white;
+}

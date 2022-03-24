@@ -1,0 +1,34 @@
+<form>
+  <div class="mb-3">
+    <label for="username">Customer</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="customerId",
+    *ngIf="customerId!=0" disabled> -->
+    <select class="form-control" name="username" id="username" [(ngModel)]="customer"
+    *ngIf="customer.id==0">
+    <option *ngFor="let customer of customerList$|async" [value]="customer.id">{{customer.username}}</option>
+  </select>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="job">Jobs</label>
+    <select class = "form-control" name="job" id="job" [(ngModel)]="job">
+      <option *ngFor="let job of jobList$|async" [value]="job.title">{{job.title}}</option>
+    </select>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="job">Proposals</label>
+    <select class = "form-control" name="proposal" id="proposal" [(ngModel)]="proposal">
+      <option *ngFor="let proposal of proposalList$|async" [value]="proposal.title">{{proposal.jobApplyer}}</option>
+    </select>
+  </div>
+
+  <button (click)="addCustomer() " *ngIf="customer.id==0" class="btn btn-primary">
+    Add
+  </button>
+  <button (click)="updateCustomer() " *ngIf="customer.id!=0" class="btn btn-primary">
+    Update
+  </button>
+</form>

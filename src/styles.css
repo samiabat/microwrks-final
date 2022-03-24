@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+.wrapper{
+  display:flex;
+  background-color: gray;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* button{
+  padding: 15px 10px;
+  background-color:skyblue;
+  margin-right: 5px;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  width: 100px;
+} */
+ button:disabled {
+   background-color: gray;
+   opacity: 0.8;
+   color: #fff;
+   cursor:not-allowed !important;
+ }
+ .block{
+   width: 400px;
+   background:linear-gradient(270deg, #008075, red, yellow);
+   height: 400px;
+   display: flex;
+ }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
