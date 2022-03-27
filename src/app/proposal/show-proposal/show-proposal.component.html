@@ -1,1 +1,67 @@
-<p>show-proposal works!</p>
+<app-nav></app-nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-13">
+      <h5 class="btn btn-sm btn-info align-content-center">Your Job</h5>
+
+      <hr>
+      <div  *ngIf="job!=undefined" class="card card-body">
+        <table class="table table-striped">
+
+          <thead>
+            <th></th>
+          </thead>
+          <tbody>
+            <br>
+            <tr id="jobTitle">
+              <div class="card-body" style="background-color: rgb(98, 167, 80);">
+              <h3 class="card-header my-0 p-sm-right job-tile-title" style="float:left !important; color: rgb(255, 255, 255)">{{job.title}}</h3>
+              <hr>
+                <div class="card card-body color-red">
+                  {{job.description}}
+                  <hr>
+                  <pre>
+                  you will paid ${{ job.salary }} Education level: {{job.status}}
+                  posted by {{ job.customer }} Date {{ job.date_created }}.
+                </pre>
+                    <hr>
+                </div>
+              </div>
+              <hr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-body">
+    <h3 style="text-align:center; background-color:rgb(224, 119, 14);color:white;">
+      Submitted Proposals
+  </h3>
+</div>
+
+
+
+<div *ngIf="check">
+  <div *ngIf="job!=undefined">
+    <div *ngFor="let proposal of proposalList">
+      <div *ngIf="proposal.job==job.id">
+        <hr>
+
+        <div style="border: 1px solid black;" class = "container mt-4 mb-4 p-3 d-flex justify-content-center">
+
+              <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button><span class="id">@{{proposal.jobApplyer}}</span>
+                <div><button class="btn btn-success" type="button">Confirm</button></div>
+                <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">1069 <span class="follow">Followers</span></span> </div>
+                <div class="text mt-3" class="card card-body" style="background:goldenrod;"> <span>{{proposal.proposal}}</span> </div>
+                <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>

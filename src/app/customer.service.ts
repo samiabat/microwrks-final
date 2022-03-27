@@ -23,6 +23,10 @@ export class CustomerService {
     return this.http.get<any>(this.ApiUrl + `/customers/`)
   }
 
+  getCustomerByUsername(username:string):Observable<any> {
+    return this.http.get<any>(this.ApiUrl + `/customers/${username}/`)
+  }
+
   addCustomer(data:any){
     return this.http.post(this.ApiUrl + `/customers/`, data);
   }
@@ -39,7 +43,7 @@ export class CustomerService {
   }
 
   getJobbyId(id:any):Observable<any> {
-    return this.http.get<any>(this.ApiUrl + `jobs`, id)
+    return this.http.get<any>(this.ApiUrl + `/jobs/${id}/`)
   }
 
   addJob(data:any){
@@ -59,6 +63,13 @@ export class CustomerService {
     return this.http.get<any>(this.ApiUrl + `/proposals/`);
   }
 
+  getProposalByJob(job:any):Observable<any> {
+    return this.http.get<any>(this.ApiUrl + `/proposals/${job}/`)
+  }
+
+  getProposalById(id:any):Observable<any> {
+    return this.http.get<any>(this.ApiUrl + `/proposals/${id}/`)
+  }
   addProposal(data:any){
     return this.http.post(this.ApiUrl + `/proposals/`, data);
   }

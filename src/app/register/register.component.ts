@@ -15,11 +15,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.register = this.fb.group({
-      name:["", Validators.required],
+      name:["", [Validators.required, Validators.minLength(4)]],
       email:["", Validators.compose([Validators.required, Validators.email])],
-      username:["", Validators.required],
-      password:["", Validators.required],
-      repeatPassword:[" ", Validators.required]
+      username:["", [Validators.required, Validators.minLength(4)]],
+      password:["", [Validators.required, Validators.minLength(4)]],
+      repeatPassword:["", [Validators.required, Validators.minLength(4)]]
     })
 
   }
@@ -27,8 +27,15 @@ export class RegisterComponent implements OnInit {
   submitRegister(data:any){
     if(data.password===data.repeatPassword){
     this.sharedService.addCustomer(data)
-      .subscribe(res=>this.router.navigate(['login'])
-     );
+      .subscribe((res)=>{
+        if (res!=="The User Name Already Exist!"){
+        this.router.navigate(['login'])
+      }
+      else{
+        alert(res);
+      }
+      }
+     )
     }
     else{
       console.log("password not mach");
@@ -38,5 +45,17 @@ export class RegisterComponent implements OnInit {
   gotToLogin(){
     this.router.navigate(['login']);
   }
+
+  getClass(form:any, fieldname:any):string{
+    let classList="form-control ";
+
+    if (form.get(fieldname).invalid && form.get(fieldname).touched){
+     classList += "is-invalid"
+    } else{
+     classList += "is-valid"
+    }
+
+    return classList;
+    }
 
 }

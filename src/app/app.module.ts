@@ -28,6 +28,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatCommonModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { IntercepterService } from './intercepter.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { IntercepterService } from './intercepter.service';
     RegisterComponent,
     NavComponent,
     FooterComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.login = this.fb.group({
-      username:[" ", Validators.required],
-      password:[" ", Validators.required]
+      username:["", [Validators.required, Validators.minLength(4)]],
+      password:["", [Validators.required, Validators.minLength(4)]]
     })
   }
 
@@ -31,11 +31,27 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["home"]);
         }
       }
-      );
+      )
+
+
   }
 
 
   goToSignup(){
     this.router.navigate(['register']);
   }
+
+
+
+  getClass(form:any, fieldname:any):string{
+    let classList="form-control ";
+
+    if (form.get(fieldname).invalid && form.get(fieldname).touched){
+     classList += "is-invalid"
+    } else{
+     classList += "is-valid"
+    }
+
+    return classList;
+    }
 }

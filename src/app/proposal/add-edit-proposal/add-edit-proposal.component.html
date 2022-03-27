@@ -1,1 +1,22 @@
-<p>add-edit-proposal works!</p>
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="card-body">
+    <form [formGroup]="form">
+      <h1 style="text-align:center; background-color: rgb(243, 247, 14)">Submit Proposal</h1>
+      <div class="mb-3">
+        <input type="hidden" class="form-control" id="eexampleInputEmail1" aria-describedby="emailHelp" ngModel="{{user}}" formControlName="jobApplyer">
+      </div>
+      <div class="mb-3">
+        <input type="hidden" class="form-control" id="eexampleInputEmail1" aria-describedby="emailHelp" ngModel="{{id}}" formControlName="job">
+      </div>
+      <div class="mb-3">
+        <label for="eexampleInputEmail1" class="form-label">Proposal</label>
+        <textarea class="form-control" id="eexampleFormControlTextarea1" aria-describedby="emailHelp" rows="5" formControlName="proposal"></textarea>
+        <div id="eemailHelp" class="form-text">Write your the Proposal</div>
+      </div>
+      <button (click)="proposalSubmit(form.value)" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

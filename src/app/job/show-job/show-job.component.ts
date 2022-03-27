@@ -16,7 +16,9 @@ export class ShowJobComponent implements OnInit {
   jobList:any;
 
   jobDeta!:any;
-  static id: any;
+  newJob:any;
+  static temp:any;
+  static jobId:any;
 
   constructor(private service:CustomerService, private router:Router) { }
 
@@ -24,7 +26,6 @@ export class ShowJobComponent implements OnInit {
     this.getCurrentUser();
     this.getAllJobList();
     this.refreshJobList();
-    Jobid
     }
 
   deleteJob(id: any) {
@@ -63,20 +64,15 @@ export class ShowJobComponent implements OnInit {
     })
   }
 
+
+
   setId(newId:any){
-    ShowJobComponent.id = newId;
+    ShowJobComponent.temp = newId;
+    ShowJobComponent.getId()
+  }
+  static getId(){
+    return this.temp;
   }
 }
-export class Jobid{
-  static id = ShowJobComponent.id;
-
-  constructor(){}
 
 
-
-  new(){
-    console.log(Jobid.id);
-  }
-
-
-}

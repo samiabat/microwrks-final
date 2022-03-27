@@ -10,12 +10,14 @@
 
             <div class="form-outline mb-2">
               <label class="form-label" for="typePasswordX-2"></label>
-              <input type="text" id="typePasswordX-2" placeholder="Enter the username" formControlName="username" class="form-control form-control-lg" />
+              <input type="text" [ngClass]="getClass(login, 'username')" id="typePasswordX-2" placeholder="Enter the username" formControlName="username" class="form-control form-control-lg" />
+              <small *ngIf="login.get('username').invalid && login.get('username').touched" class="text-danger l-1">Username is required and must be atleast 5 characters long</small>
             </div>
 
             <div class="form-outline mb-2">
               <label class="form-label" for="tttypePasswordX-2"></label>
-              <input type="password" id="tttypePasswordX-2" placeholder="Enter your password" formControlName="password" class="form-control form-control-lg" />
+              <input type="password" [ngClass]="getClass(login, 'password')" id="tttypePasswordX-2" placeholder="Enter your password" formControlName="password" class="form-control form-control-lg" />
+              <small *ngIf="login.get('password').invalid && login.get('password').touched" class="text-danger">Password is required and must be atleast 4 characters long</small>
             </div>
 
             <!-- Checkbox -->

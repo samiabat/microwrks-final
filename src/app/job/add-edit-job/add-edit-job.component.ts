@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
-import { Jobid } from '../show-job/show-job.component';
+import { ShowJobComponent } from '../show-job/show-job.component';
 
 @Component({
   selector: 'app-add-edit-job',
@@ -12,33 +12,53 @@ import { Jobid } from '../show-job/show-job.component';
 export class AddEditJobComponent implements OnInit {
 
   form:any = FormGroup;
-  user:any;
-  isEdit:boolean = false;
+  job:any;
+  user!:any;
+  isEdit = false;
+  id = ShowJobComponent.getId();
 
   constructor(private fb:FormBuilder, private router:Router, private sharedService:CustomerService) { }
 
 
   ngOnInit(): void {
-    console.log(Jobid.id);
-    this.getCurrentUser();
-    if (!this.isEdit) {
-    this.form = this.fb.group({
-      title:["", Validators.required],
-      customer:[this.user, Validators.required],
-      description:["", Validators.required],
-      status:["", Validators.required],
-      salary:["", Validators.required],
+    this.getCurrentUser()
+    if (this.id !=undefined) {
+      this.isEdit = true;
     }
-  )
-}
-else{
-
-}
+    if (!this.isEdit) {
+      this.form = this.fb.group({
+        title:["", Validators.required],
+        customer:[this.user, Validators.required],
+        description:["", Validators.required],
+        status:["", Validators.required],
+        salary:["", Validators.required],
+      }
+    )
+  }
+  else{
+    this.job = this.id;
+    this.form = this.fb.group({
+        title:[this.job.title, Validators.required],
+        customer:[this.job.customer, Validators.required],
+        description:[this.job.description, Validators.required],
+        status:[this.job.status, Validators.required],
+        salary:[this.job.salary, Validators.required],
+      })
+    }
   }
 
+
   jobSubmit(data:any){
-    console.log(this.form);
     this.sharedService.addJob(this.form.getRawValue())
+      .subscribe((res)=>{
+        this.form.reset();
+        this.router.navigate(['/jobs'])
+        alert(res);
+      });
+  }
+
+  jobEdit(){
+    this.sharedService.updateJob(this.job.id, this.form.getRawValue())
       .subscribe((res)=>{
         this.form.reset();
         this.router.navigate(['/jobs'])
@@ -51,4 +71,5 @@ else{
       this.user = response["user"];
     })
   }
+
 }

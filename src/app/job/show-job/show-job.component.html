@@ -8,7 +8,7 @@
 		<div class="card card-body">
 			<a class="btn btn-sm btn-primary align-content-center" routerLink="/createJob">Post Job</a>
       <form class="form-inline">
-        <input name="name_filter" [(ngModel)]="jobFilter" (keyup)="filterJob()" class="form-control mr-sm-2" type="search" placeholder="Search by topic" aria-label="Search">
+        <input name="name_filter" [(ngModel)]="jobFilter" (keyup)="filterJob()" class="form-control mr-sm-2" type="search" placeholder="Search Jobs" aria-label="Search">
       </form>
       <table class="table table-striped">
 
@@ -21,7 +21,8 @@
             <div class="card-body" style="background-color: rgb(98, 167, 80);">
             <h3 class="card-header my-0 p-sm-right job-tile-title" style="float:left !important; color: rgb(255, 255, 255)">{{job.title}}</h3>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button *ngIf="[job.customer]==user" (click)="setId(job.id)" routerLink="/createJob" class="btn btn-primary" type="button">Update</button>
+              <button *ngIf="[job.customer]==user" (click)="setId(job)" routerLink="/proposals" class="btn btn-secondary" type="button">Proposals</button>
+              <button *ngIf="[job.customer]==user" (click)="setId(job)" routerLink="/createJob" class="btn btn-primary" type="button">Update</button>
               <button *ngIf="[job.customer]==user" (click)="deleteJob(job.id)" class="btn btn-danger" type="button">Delete</button>
             </div>
             <hr>
@@ -36,7 +37,7 @@
               </div>
               <div *ngIf="[job.customer]!=user" class="d-grid gap-2 col-6 mx-auto">
                 <button class="btn btn-danger" type="button">Report</button>
-                <button class="btn btn-primary" type="button">Submit Proposal</button>
+                <button class="btn btn-primary" (click)="setId(job)" type="button" routerLink="/createProposal">Submit Proposal</button>
               </div>
             </div>
             <hr>
@@ -46,25 +47,9 @@
 
 		</div>
 	</div>
-  <div class="col-md-3">
-		<h5>Jobs:</h5>
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" routerLink="/jobs">Create Job</a>
-			<table class="table table-sm">
-				<tr>
-					<th></th>
-					<th>User</th>
-					<th>Phone</th>
-				</tr>
-					<tr>
-						<td><a class="btn btn-sm btn-info" routerLink="/proposals">View</a></td>
-						<!-- <td>{{customer.email}}</td> -->
-						<td><img class="profile-pic" src="" ></td>
-					</tr>
 
-			</table>
-		</div>
+  <div class="col-md-3">
+		<app-dashboard></app-dashboard>
 	</div>
 </div>
 </div>

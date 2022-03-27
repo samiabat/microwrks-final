@@ -10,10 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuaredGuard } from './auth-guared.guard';
 import { AddEditJobComponent } from './job/add-edit-job/add-edit-job.component';
 import { ProposalComponent } from './proposal/proposal.component';
+import { ShowProposalComponent } from './proposal/show-proposal/show-proposal.component';
+import { AddEditProposalComponent } from './proposal/add-edit-proposal/add-edit-proposal.component';
 
 
 const routes: Routes = [{path: 'login', component: LoginComponent}, {path: 'register', component: RegisterComponent},
-{path: 'home', component: CustomerComponent}, {path:"proposals", component:ProposalComponent}, {path: 'customer', component: ShowCustomerComponent}, {path: 'job', component: ShowJobComponent},
+{path: 'home', component: CustomerComponent}, {path:"proposals", component:ProposalComponent},{path: "proposals", component:ShowProposalComponent},{path:"createProposal", component:AddEditProposalComponent}, {path: 'customer', component: ShowCustomerComponent}, {path: 'job', component: ShowJobComponent},
 {path: 'jobs', component: JobComponent , canActivate:[AuthGuaredGuard]}, {path:'createJob', component:AddEditJobComponent, canActivate:[AuthGuaredGuard]}, {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

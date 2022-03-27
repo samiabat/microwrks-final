@@ -48,12 +48,4 @@ export class ProposalComponent implements OnInit {
       }
     }
 
-
-  // title:["", Validators.required],
-  //     customer:["", Validators.required],
-  //     email:["",Validators.required],
-  //     description:["", Validators.required],
-  //     status:["", Validators.required],
-  //     salary:["", Validators.required],
-
 }
