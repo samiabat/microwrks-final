@@ -50,6 +50,10 @@ export class CustomerService {
     return this.http.post(this.ApiUrl + `/jobs/`, data);
   }
 
+  userReport(id:any):Observable<any> {
+    return this.http.get<any>(this.ApiUrl + `/report/${id}/`)
+  }
+
   updateJob(id:Number|String, data:any){
     return this.http.put(this.ApiUrl + `/jobs/${id}/`, data);
   }
@@ -81,6 +85,31 @@ export class CustomerService {
   deleteProposal(id:Number|String){
     return this.http.delete(this.ApiUrl + `/proposals/${id}/`);
   }
+
+  getMessage(someone:any):Observable<any>{
+    return this.http.get<any>(this.ApiUrl + `/messages/${someone}/`)
+  };
+
+  review(data:any){
+    return this.http.post(this.ApiUrl + `/reviews/`, data)
+  }
+
+  report(data:any){
+    return this.http.post(this.ApiUrl + `/reports/`, data);
+  }
+
+  getReview(id:any):Observable<any>{
+    return this.http.get<any>(this.ApiUrl + `/reviews/${id}/`)
+  };
+
+  getReport(id:any):Observable<any>{
+    return this.http.get<any>(this.ApiUrl + `/reports/${id}/`)
+  };
+
+  sendMessage(data:any){
+    return this.http.post(this.ApiUrl + `/messages/`, data);
+  }
+
   loggedIn(){
   return !!localStorage.getItem('token');
   }

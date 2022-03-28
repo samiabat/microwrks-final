@@ -1,0 +1,17 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="card-body" *ngIf="check==true">
+    <form [formGroup]="form">
+      <h1 style="text-align:center; background-color: rgb(231, 50, 18)">Report</h1>
+      <div class="mb-3">
+        <input *ngIf="userId!==undefined" type="hidden" class="form-control" id="eexampleInputEmail1" aria-describedby="emailHelp" [value]="userId" formControlName="jobPoster">
+      </div>
+      <div class="mb-3">
+        <input *ngIf="id!==undefined" type="hidden" class="form-control" id="eexampleInputEmail1" aria-describedby="emailHelp" [value]="id" formControlName="job">
+      </div>
+      <button (click)="reportSubmit(form.value)" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

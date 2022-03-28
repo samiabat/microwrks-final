@@ -19,6 +19,7 @@ export class ShowJobComponent implements OnInit {
   newJob:any;
   static temp:any;
   static jobId:any;
+  static userId:any;
 
   constructor(private service:CustomerService, private router:Router) { }
 
@@ -73,6 +74,5 @@ export class ShowJobComponent implements OnInit {
   static getId(){
     return this.temp;
   }
+
 }
-
-

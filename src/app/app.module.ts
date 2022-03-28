@@ -29,6 +29,10 @@ import {MatCommonModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { IntercepterService } from './intercepter.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReportComponent } from './report/report.component';
+import { ReviewComponent } from './review/review.component';
+import { MessageComponent } from './message/message.component';
+import { ShowMessageComponent } from './show-message/show-message.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NavComponent,
     FooterComponent,
     DashboardComponent,
+    ReportComponent,
+    ReviewComponent,
+    MessageComponent,
+    ShowMessageComponent,
   ],
   imports: [
     BrowserModule,

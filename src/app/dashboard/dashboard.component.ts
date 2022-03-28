@@ -10,7 +10,9 @@ import { CustomerService } from '../customer.service';
 export class DashboardComponent implements OnInit {
   data!: any;
   username!: string;
+  report:any;
   check = false;
+
 
   constructor(private sharedService:CustomerService) { }
 
@@ -21,9 +23,13 @@ export class DashboardComponent implements OnInit {
   getCurrentUser(){
     return this.sharedService.getProfile().subscribe((response) =>{
       this.sharedService.getCustomerByUsername(response["user"]).subscribe((res)=>{
-        this.check = true;
+        this.sharedService.userReport(res.id).subscribe((response)=>{
+        this.report = response;
         this.data = res;
+        this.check = true;
+        });
       })
+
     })
   }
 

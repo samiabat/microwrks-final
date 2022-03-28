@@ -36,7 +36,7 @@
                   <hr>
               </div>
               <div *ngIf="[job.customer]!=user" class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-danger" type="button">Report</button>
+                <button class="btn btn-danger" (click)="setId(job)" routerLink="/report" type="button">Report</button>
                 <button class="btn btn-primary" (click)="setId(job)" type="button" routerLink="/createProposal">Submit Proposal</button>
               </div>
             </div>
